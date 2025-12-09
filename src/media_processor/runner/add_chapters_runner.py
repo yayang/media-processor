@@ -1,13 +1,25 @@
+import os
 from pathlib import Path
 
-from service.media_process import chapter_processor
+from media_processor.service.media_process import chapter_processor
 
-# 引入核心处理器
+# --- 📍 路径导航系统 ---
 
-# --- ⚙️ 任务配置区域 (TaskList) ---
+# 1. 锁定当前脚本的位置 (锚点)
+# 路径: .../src/media_processor/runner/add_chapters_runner.py
+CURRENT_FILE = Path(__file__).resolve()
+
+# 2. 向上溯源找到【项目根目录】
+# parents[0] = runner
+# parents[1] = media_processor
+# parents[2] = src
+# parents[3] = 项目根目录
+PROJECT_ROOT = CURRENT_FILE.parents[3]
 
 # 所有生成带章节视频的存放位置
-OUTPUT_DIR = "../output/Chaptered_Videos"
+OUTPUT_DIR = PROJECT_ROOT / "output" / "Chaptered_Videos"
+
+# --- ⚙️ 任务配置区域 (TaskList) ---
 
 # 这里配置具体的视频和章节
 # 格式: { "file": "路径", "chapters": [ ("时间", "标题"), ... ] }

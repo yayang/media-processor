@@ -1,19 +1,28 @@
 import os
 from pathlib import Path
 
-from service.media_process import video_processor
+from media_processor.service.media_process import video_processor
 
-# 引入刚才写好的 processor 模块
+# 1. 锁定当前脚本的位置 (锚点)
+# 路径: .../src/media_processor/runner/add_chapters_runner.py
+CURRENT_FILE = Path(__file__).resolve()
+
+# 2. 向上溯源找到【项目根目录】
+# parents[0] = runner
+# parents[1] = media_processor
+# parents[2] = src
+# parents[3] = 项目根目录
+PROJECT_ROOT = CURRENT_FILE.parents[3]
 
 # --- ⚙️ 批量任务配置 ---
 
 # 待扫描的根目录列表
 INPUT_DIRS = [
-    # "../resources"
+    PROJECT_ROOT / "resources"
 ]
 
 # 所有生成的结果都放在这里
-OUTPUT_DIR = "../output/Videos"
+OUTPUT_DIR = PROJECT_ROOT / "output" / "Videos"
 # True=极速(Apple 硬件加速 GPU, VideoToolbox), False=高压缩(CPU)
 # 经测试, 350M 9分钟的视频文件, GPU 压缩后138M, 耗时45秒 适合快速处理, CPU 压缩后102M, 耗时70s, 适合归档
 # 通常完成 1小时 的视频, 需要6分钟以上
