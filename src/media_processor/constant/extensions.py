@@ -13,4 +13,5 @@ VIDEO_EXTENSIONS = {
     ".webm",
     ".m4v",
     ".vob",
+    ".dat",
 }

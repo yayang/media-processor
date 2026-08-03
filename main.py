@@ -1,5 +1,4 @@
 import json
-import os
 import sys
 from pathlib import Path
 
@@ -7,12 +6,12 @@ import typer
 
 # Runners
 from media_processor.runner import (
-    batch_audio_runner,
-    batch_runner_media_converter,
-    batch_timelapse,
     add_chapters_runner,
+    batch_audio_runner,
     batch_merge_runner,
+    batch_runner_media_converter,
     batch_subtitle_runner,
+    batch_timelapse,
 )
 
 app = typer.Typer(help="Media Processor CLI")
@@ -33,9 +32,7 @@ def load_params(config_path: Path):
     if not config_path.exists():
         print(f"❌ Configuration file not found: {config_path}")
         if config_path == DEFAULT_PARAMS_FILE:
-            print(
-                f"👉 Please copy an example from params/ and rename it to params.json"
-            )
+            print("👉 Please copy an example from params/ and rename it to params.json")
         sys.exit(1)
 
     try:
@@ -50,7 +47,7 @@ def load_params(config_path: Path):
 def run(
     config: Path = typer.Option(
         DEFAULT_PARAMS_FILE, "--config", "-c", help="Path to JSON config file"
-    )
+    ),
 ):
     """Run task based on configuration file (default: params/params.json)."""
     params = load_params(config)

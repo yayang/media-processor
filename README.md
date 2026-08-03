@@ -1,38 +1,38 @@
 # Media Processor
 
-**Media Processor** is a comprehensive CLI tool designed for efficient batch processing of video and audio files. Built with Python and automated via `make`, it simplifies complex FFmpeg operations into structured, configurable tasks.
+**Media Processor** 是一个面向视频与音频批处理的 CLI 工具。项目基于 Python 实现，并通过 `make` 统一调度，把较复杂的 FFmpeg 操作收敛为结构化、可配置的任务流程。
 
-## ✨ Key Features
+## ✨ 核心能力
 
-- **🎥 Video Conversion**: Batch compress videos to standard formats (1080p/720p) with optional GPU acceleration.
-- **⏱️ Timelapse Generation**: Create high-speed timelapse videos from folders of raw footage.
-- **🎵 Audio Tools**: Extract audio tracks and merge them into single or batched MP3 files.
-- **📝 Subtitle & Chapters**: Automatically embed subtitles and burn chapter markers.
-- **🚀 High Performance**: Supports hardware acceleration and stream-copy merging for maximum speed.
-- **🛠️ Configurable**: Fully driven by JSON configuration files for reproducible workflows.
+- **🎥 视频转换**: 批量压缩视频到标准规格（1080p/720p），可选 GPU 加速。
+- **⏱️ 延时视频生成**: 从原始素材目录中生成高速 timelapse 视频。
+- **🎵 音频处理**: 提取音轨，并合并为单个或批量 MP3 文件。
+- **📝 字幕与章节**: 自动封装字幕并烧录章节标记。
+- **🚀 性能优先**: 支持硬件加速和 stream copy 合并，尽量减少处理耗时。
+- **🛠️ JSON 驱动**: 通过 JSON 配置文件定义任务，便于复现和复用处理流程。
 
-## 🚀 Quick Start
+## 🚀 快速开始
 
-1.  **Install Dependencies**:
-    ```bash
-    make install
-    ```
+1. **安装依赖**:
+   ```bash
+   make install
+   ```
 
-2.  **Configure**:
-    Copy an example configuration to start:
-    ```bash
-    cp params/convert.example.json params/params.json
-    ```
+2. **准备配置**:
+   复制一个示例配置作为起点:
+   ```bash
+   cp params/convert.example.json params/params.json
+   ```
 
-3.  **Run**:
-    ```bash
-    make run
-    ```
-    Or specify a config file directly:
-    ```bash
-    make run config=params/audio.json
-    ```
+3. **执行任务**:
+   ```bash
+   make run
+   ```
+   也可以直接指定配置文件:
+   ```bash
+   make run config=params/audio.json
+   ```
 
-## 📖 Documentation
+## 📖 文档
 
-For full usage details, parameter references, and advanced workflows, please consult the [User Manual](docs/user_manual.md).
+完整用法、参数说明和进阶工作流见[用户手册](docs/user_manual.md)。

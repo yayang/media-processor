@@ -14,3 +14,6 @@ env/
 output/
 resources/
 params/params.json
+
+# Local agent resources
+.agent/skills/
